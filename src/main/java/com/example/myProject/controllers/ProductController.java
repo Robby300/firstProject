@@ -1,7 +1,6 @@
 package com.example.myProject.controllers;
 
 import com.example.myProject.models.Product;
-import com.example.myProject.models.ProductsEnum;
 import com.example.myProject.repo.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -28,13 +27,13 @@ public class ProductController {
     }
 
     @GetMapping("/shop/add")
-    public String productAdd(Model model) {
+    public String shopAdd(Model model) {
         return "shop-add";
     }
 
     @PostMapping("/shop/add")
-    public String shopProductAdd(@RequestParam Double price, @RequestParam String name, @RequestParam ProductsEnum type, Model model) {
-        Product product = new Product(price, name, type);
+    public String shopProductAdd(@RequestParam String name, @RequestParam Double price,  Model model) {
+        Product product = new Product(name, price);
         productRepository.save(product);
         return "redirect:/shop";
     }

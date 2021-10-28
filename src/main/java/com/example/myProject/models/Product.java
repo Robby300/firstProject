@@ -16,19 +16,11 @@ public class Product {
     public Product() {
     }
 
-    public Product(double price, String name, ProductsEnum type) {
+    public Product(String name, double price) {
         this.price = price;
         this.name = name;
-        this.type = type;
     }
 
-    public ProductsEnum getType() {
-        return type;
-    }
-
-    public void setType(ProductsEnum type) {
-        this.type = type;
-    }
 
     public double getPrice() {
         return price;
