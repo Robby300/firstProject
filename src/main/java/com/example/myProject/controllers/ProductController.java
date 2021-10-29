@@ -32,8 +32,8 @@ public class ProductController {
     }
 
     @PostMapping("/shop/add")
-    public String shopProductAdd(@RequestParam String name, @RequestParam Double price,  Model model) {
-        Product product = new Product(name, price);
+    public String shopProductAdd(@RequestParam String name, @RequestParam Double price, @RequestParam String description, Model model) {
+        Product product = new Product(name, price, description);
         productRepository.save(product);
         return "redirect:/shop";
     }
@@ -47,7 +47,7 @@ public class ProductController {
         ArrayList<Product> res = new ArrayList<>();
         product.ifPresent(res::add);
         model.addAttribute("product", res);
-        return "product-details";
+        return "shop-details";
     }
 
     @GetMapping("/shop/{id}/edit")
@@ -63,11 +63,20 @@ public class ProductController {
     }
 
     @PostMapping("/shop/{id}/edit")
-    public String blogPostUpdate(@PathVariable(value = "id") long id, @RequestParam String name, @RequestParam Double price, Model model) {
+    public String shopProductUpdate(@PathVariable(value = "id") long id, @RequestParam String name
+            ,@RequestParam Double price, @RequestParam String description, Model model) {
         Product product = productRepository.findById(id).orElseThrow();
         product.setName(name);
         product.setPrice(price);
+        product.setDescription(description);
         productRepository.save(product);
         return "redirect:/shop/" + id;
+    }
+
+    @PostMapping("/shop/{id}/remove")
+    public String shopProductDelete(@PathVariable(value = "id") long id, Model model) {
+        Product product = productRepository.findById(id).orElseThrow();
+        productRepository.delete(product);
+        return "redirect:/shop";
     }
 }

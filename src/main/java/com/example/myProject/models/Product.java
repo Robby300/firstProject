@@ -12,15 +12,24 @@ public class Product {
     private double price;
     private String name;
     private ProductsEnum type;
+    private String description;
 
     public Product() {
     }
 
-    public Product(String name, double price) {
+    public Product(String name, double price, String description) {
         this.price = price;
         this.name = name;
+        this.description = description;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     public double getPrice() {
         return price;

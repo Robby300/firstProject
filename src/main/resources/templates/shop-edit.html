@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Редактирование товара</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css">
+</head>
+<body>
+
+<header th:insert="blocks/header :: header"></header>
+<div class="container mt-5 mb-5">
+    <h1>Редактирование товара</h1>
+    <div th:each="el : ${product}">
+        <form method="post">
+            <input type="text" th:value="${el.name}" name="name" placeholder="Введите название товара" class="form-control"><br>
+            <input type="number" th:value="${el.price}" step="0.01" min="0" name="price" placeholder="Введите цену в ₽" class="form-control"><br>
+            <textarea name="description" placeholder="Введите описание" class="form-control" th:text="${el.description}"/><br>
+            <button type="submit" class="btn btn-success">Обновить</button>
+            <form method="post" enctype="multipart/form-data">
+                <input type="file" name="file" />
+                <input type="submit" name="upload" value="Загрузить" />
+            </form>
+        </form>
+        </form>
+    </div>
+</div>
+<div th:insert="blocks/footer :: footer"></div>
+</body>
+</html>
