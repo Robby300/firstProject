@@ -13,9 +13,14 @@
         <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
             <div th:each="el : ${products}" class="col">
                 <div class="card mb-4 rounded-3 shadow-sm">
-                    <h3 th:text="${el.name}"/>
-                    <p th:text="${el.price}"/>
-                    <a th:href="'/shop/' + ${el.id}" class="btn btn-warning">Детальнеее</a>
+                    <div class="card-body">
+
+                        <h3 th:text="${el.name}"/><br>
+                        <h5 class="my-0 fw-normal">Ваша цена со скидкой всего</h5>
+                        <h3 th:text="${el.price}"/>
+                        <h5 class="my-0 fw-normal">деревянных</h5><br>
+                        <a th:href="'/shop/' + ${el.id}" class="btn btn-warning">Детальнеее</a>
+                    </div>
                 </div>
             </div>
         </div>
