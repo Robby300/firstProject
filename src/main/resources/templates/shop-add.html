@@ -14,13 +14,18 @@
         <input type="text" name="name" placeholder="Введите название товара" class="form-control"><br>
         <input type="number" step="0.01" min="0" name="price" placeholder="Введите цену в ₽" class="form-control"><br>
         <textarea name="description" placeholder="Введите описание" class="form-control"></textarea><br>
+        <input type="text" name="name" placeholder="Введите название картинки" class="form-control"><br>
+
+        <form method="POST" enctype="multipart/form-data" action="/upload">
+            File to upload: <input type="file" name="file"><br />
+            Name: <input type="text" name="name"><br /> <br />
+            <input type="submit" value="Upload"> Press here to upload the file!
+        </form> <br>
+
         <button type="submit" class="btn btn-success">Добавить товар</button>
     </form><br>
 
-    <form method="POST" enctype="multipart/form-data" action="/upload">
-        File to upload: <input type="file" name="file"><br />
-        Name: <input type="text" name="name"><br /> <br /> <input type="submit" value="Upload"> Press here to upload the file!
-    </form> <br>
+
 </div>
 <div th:insert="blocks/footer :: footer"></div>
 </body>

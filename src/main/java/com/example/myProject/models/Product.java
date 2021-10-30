@@ -1,21 +1,18 @@
 package com.example.myProject.models;
 
-import org.springframework.core.io.Resource;
-import org.springframework.web.multipart.MultipartFile;
-
 import javax.persistence.*;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.nio.file.Path;
 
 @Entity
-public class Product implements MultipartFile {
+public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+
+
+
+    private String imagePath;
     private double price;
     private String name;
     private ProductsEnum type;
@@ -24,10 +21,11 @@ public class Product implements MultipartFile {
     public Product() {
     }
 
-    public Product(String name, double price, String description) {
+    public Product(String name, double price, String description, String imagePath) {
         this.price = price;
         this.name = name;
         this.description = description;
+        this.imagePath = imagePath;
     }
 
     public String getDescription() {
@@ -62,48 +60,12 @@ public class Product implements MultipartFile {
         this.id = id;
     }
 
-    @Override
-    public String getOriginalFilename() {
-        return null;
+    public String getImagePath() {
+        return imagePath;
     }
 
-    @Override
-    public String getContentType() {
-        return null;
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
     }
 
-    @Override
-    public boolean isEmpty() {
-        return false;
-    }
-
-    @Override
-    public long getSize() {
-        return 0;
-    }
-
-    @Override
-    public byte[] getBytes() throws IOException {
-        return new byte[0];
-    }
-
-    @Override
-    public InputStream getInputStream() throws IOException {
-        return null;
-    }
-
-    @Override
-    public Resource getResource() {
-        return MultipartFile.super.getResource();
-    }
-
-    @Override
-    public void transferTo(File dest) throws IOException, IllegalStateException {
-
-    }
-
-    @Override
-    public void transferTo(Path dest) throws IOException, IllegalStateException {
-        MultipartFile.super.transferTo(dest);
-    }
 }
