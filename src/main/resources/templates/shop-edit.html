@@ -16,10 +16,12 @@
             <input type="number" th:value="${el.price}" step="0.01" min="0" name="price" placeholder="Введите цену в ₽" class="form-control"><br>
             <textarea name="description" placeholder="Введите описание" class="form-control" th:text="${el.description}"/><br>
             <button type="submit" class="btn btn-success">Обновить</button>
-        </form>
+        </form><br>
+
         <form method="POST" enctype="multipart/form-data" action="/upload">
             File to upload: <input type="file" name="file"><br />
-            Name: <input type="text" name="name"><br /> <br /> <input type="submit" value="Upload"> Press here to upload the file!
+            Name: <input type="text"  name="file">
+            <br /> <br /> <input type="submit" value="Upload"> Press here to upload the file!
         </form> <br>
 
     </div>

@@ -14,17 +14,8 @@
         <input type="text" name="name" placeholder="Введите название товара" class="form-control"><br>
         <input type="number" step="0.01" min="0" name="price" placeholder="Введите цену в ₽" class="form-control"><br>
         <textarea name="description" placeholder="Введите описание" class="form-control"></textarea><br>
-
-
-        <!--<form method="post" enctype="multipart/form-data" action="/upload">
-            <input type="file" name="file"/>
-            <input type="submit" name="upload" value="Загрузить"/>
-        </form>-->
-
-
         <button type="submit" class="btn btn-success">Добавить товар</button>
-
-    </form>
+    </form><br>
 
     <form method="POST" enctype="multipart/form-data" action="/upload">
         File to upload: <input type="file" name="file"><br />

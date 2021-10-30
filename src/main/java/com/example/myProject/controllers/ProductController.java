@@ -79,4 +79,6 @@ public class ProductController {
         productRepository.delete(product);
         return "redirect:/shop";
     }
+
+
 }
