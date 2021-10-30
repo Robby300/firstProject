@@ -61,7 +61,7 @@ public class Product {
     }
 
     public String getImagePath() {
-        return imagePath;
+        return "images/" + imagePath;
     }
 
     public void setImagePath(String imagePath) {

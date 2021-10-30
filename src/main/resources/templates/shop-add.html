@@ -16,11 +16,12 @@
         <textarea name="description" placeholder="Введите описание" class="form-control"></textarea><br>
         <input type="text" name="name" placeholder="Введите название картинки" class="form-control"><br>
 
-        <form method="POST" enctype="multipart/form-data" action="/upload">
-            File to upload: <input type="file" name="file"><br />
-            Name: <input type="text" name="name"><br /> <br />
-            <input type="submit" value="Upload"> Press here to upload the file!
-        </form> <br>
+        <form method="POST" enctype="multipart/form-data"
+              action="/upload">
+            File to upload: <input type="file" name="file"><br /> Name: <input
+                type="text" name="name"><br /> <br /> <input type="submit"
+                                                             value="Upload"> Press here to upload the file!
+        </form>
 
         <button type="submit" class="btn btn-success">Добавить товар</button>
     </form><br>

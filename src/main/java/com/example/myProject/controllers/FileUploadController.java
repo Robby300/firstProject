@@ -27,7 +27,7 @@ public class FileUploadController {
             try {
                 byte[] bytes = file.getBytes();
                 BufferedOutputStream stream =
-                        new BufferedOutputStream(new FileOutputStream(new File(name + "-uploaded")));
+                        new BufferedOutputStream(new FileOutputStream(new File("src/main/resources/static/images/" +name)));
                 stream.write(bytes);
                 stream.close();
                 return "Вы удачно загрузили " + name + " в " + name + "-uploaded !";
