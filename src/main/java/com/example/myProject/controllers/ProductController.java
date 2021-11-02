@@ -96,7 +96,8 @@ public class ProductController {
 
     @PostMapping("/shop/{id}/edit")
     public String shopProductUpdate(@PathVariable(value = "id") long id, @RequestParam String name
-            ,@RequestParam Double price, @RequestParam String description, @RequestParam("fileImage") MultipartFile multipartFile, Model model) throws IOException {
+            , @RequestParam Double price, @RequestParam String description
+            , @RequestParam("fileImage") MultipartFile multipartFile, Model model) throws IOException {
         String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
 
         Product product = productRepository.findById(id).orElseThrow();
