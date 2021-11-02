@@ -81,7 +81,7 @@ public class Product  {
     }
 
     @Transient
-    public String getLogoImagePath() {
+    public String getImagePath() {
         if (logo == null || id == null) return null;
 
         return "/images/" + id + "/" + logo;

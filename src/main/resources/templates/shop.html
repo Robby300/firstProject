@@ -14,9 +14,12 @@
             <div th:each="el : ${products}" class="col">
                 <div class="card mb-4 rounded-3 shadow-sm">
                     <div class="card-body">
-                        <!--<img class="foto" src ="./images/28/js.jpg" style="width: 100px">-->
+                        <!-- это просто проверка <img class="foto" src ="./images/28/js.jpg" style="width: 100px">-->
 
-                        <img class="foto" th:src="@{${el.logoImagePath}}" style="width: 200px">
+                        <img th:src="@{${el.imagePath}}" style="width: 200px">
+
+                        <img th:attr="src='.' + ${el.imagePath}" width="200">
+
 
                         <h3 th:text="${el.name}"/><br>
                         <h5 class="my-0 fw-normal">Ваша цена со скидкой всего</h5>

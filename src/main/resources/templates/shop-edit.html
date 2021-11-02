@@ -33,7 +33,7 @@
     <h1>Редактирование товара</h1>
     <div th:each="el : ${product}">
         <form method="post" enctype="multipart/form-data"
-              style="max-width: 400px; margin: 0 auto;">
+              style="max-width: 200px; margin: 0 auto;">
 
             <input type="text" th:value="${el.name}" name="name" placeholder="Введите название товара"
                    class="form-control"><br>

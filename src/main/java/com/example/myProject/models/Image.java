@@ -1,4 +1,4 @@
-package com.example.myProject.models;
+package main.java.com.example.myProject.models;
 
 import org.springframework.core.io.Resource;
 import org.springframework.web.multipart.MultipartFile;
