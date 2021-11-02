@@ -1,32 +1,42 @@
 package com.example.myProject.models;
 
 import javax.persistence.*;
+import java.nio.file.Path;
+import java.util.Set;
 
 @Entity
-public class Product {
+public class Product  {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    private String logo;
 
-
-
-    private String imagePath;
     private double price;
     private String name;
-    private ProductsEnum type;
     private String description;
+
+
 
     public Product() {
     }
 
-    public Product(String name, double price, String description, String imagePath) {
+    public Product(String name, Double price, String description) {
         this.price = price;
         this.name = name;
         this.description = description;
-        this.imagePath = imagePath;
     }
+
+
+
+    @ElementCollection(targetClass = ProductType.class, fetch = FetchType.EAGER)
+    @CollectionTable(name = "type", joinColumns = @JoinColumn(name = "type_id"))
+    @Enumerated(EnumType.STRING)
+    private Set<ProductType> types;
+
+
+
 
     public String getDescription() {
         return description;
@@ -48,6 +58,8 @@ public class Product {
         return name;
     }
 
+
+
     public void setName(String name) {
         this.name = name;
     }
@@ -60,12 +72,18 @@ public class Product {
         this.id = id;
     }
 
-    public String getImagePath() {
-        return "images/" + imagePath;
+    public String getLogo() {
+        return logo;
     }
 
-    public void setImagePath(String imagePath) {
-        this.imagePath = imagePath;
+    public void setLogo(String logo) {
+        this.logo = logo;
     }
 
+    @Transient
+    public String getLogoImagePath() {
+        if (logo == null || id == null) return null;
+
+        return "/images/" + id + "/" + logo;
+    }
 }

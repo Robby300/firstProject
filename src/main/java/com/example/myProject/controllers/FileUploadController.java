@@ -15,7 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 @Controller
 public class FileUploadController {
 
-    @RequestMapping(value = "/upload", method = RequestMethod.GET)
+    /*@RequestMapping(value = "/upload", method = RequestMethod.GET)
     public @ResponseBody
     String provideUploadInfo() {
         return "Вы можете загружать файл с использованием того же URL.";
@@ -38,5 +38,5 @@ public class FileUploadController {
             }
         }
 
-    }
+    }*/
 }

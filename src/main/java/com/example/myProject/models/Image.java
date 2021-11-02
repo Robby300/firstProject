@@ -3,61 +3,49 @@ package com.example.myProject.models;
 import org.springframework.core.io.Resource;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.Serializable;
+import java.lang.annotation.Annotation;
 import java.nio.file.Path;
 
+@Entity
+public class Image implements Embeddable {
 
-public class Image implements MultipartFile {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+
+    private String imagePath;
+
+    public Image(Long id, String imagePath) {
+        this.id = id;
+        this.imagePath = imagePath;
+    }
+
+    public Image() {
+
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
+    }
 
     @Override
-    public String getName() {
+    public Class<? extends Annotation> annotationType() {
         return null;
-    }
-
-    @Override
-    public String getOriginalFilename() {
-        return null;
-    }
-
-    @Override
-    public String getContentType() {
-        return null;
-    }
-
-    @Override
-    public boolean isEmpty() {
-        return false;
-    }
-
-    @Override
-    public long getSize() {
-        return 0;
-    }
-
-    @Override
-    public byte[] getBytes() throws IOException {
-        return new byte[0];
-    }
-
-    @Override
-    public InputStream getInputStream() throws IOException {
-        return null;
-    }
-
-    @Override
-    public Resource getResource() {
-        return MultipartFile.super.getResource();
-    }
-
-    @Override
-    public void transferTo(java.io.File dest) throws IOException, IllegalStateException {
-
-    }
-
-    @Override
-    public void transferTo(Path dest) throws IOException, IllegalStateException {
-        MultipartFile.super.transferTo(dest);
     }
 }

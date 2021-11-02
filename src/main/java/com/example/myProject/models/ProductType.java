@@ -1,6 +1,6 @@
 package com.example.myProject.models;
 
-public enum ProductsEnum {
+public enum ProductType {
     IRON("Утюг"),
     VacuumCleaner("Пылесос"),
     WashingMachine("Стиральная машина"),
@@ -12,7 +12,7 @@ public enum ProductsEnum {
 
     private String title;
 
-    ProductsEnum(String title) {
+    ProductType(String title) {
         this.title = title;
     }
 
