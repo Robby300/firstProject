@@ -100,7 +100,7 @@ public class ProductController {
             , @RequestParam("fileImage") MultipartFile multipartFile, Model model) throws IOException {
         String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
 
-        Product product = productRepository.findById(id).orElseThrow();
+        Product product = productRepository.findById(id).orElseThrow(() -> new RuntimeException());
         product.setName(name);
         product.setPrice(price);
         product.setDescription(description);
@@ -128,7 +128,7 @@ public class ProductController {
 
     @PostMapping("/shop/{id}/remove")
     public String shopProductDelete(@PathVariable(value = "id") long id, Model model) {
-        Product product = productRepository.findById(id).orElseThrow();
+        Product product = productRepository.findById(id).orElseThrow(() -> new RuntimeException());
         productRepository.delete(product);
         return "redirect:/shop";
     }

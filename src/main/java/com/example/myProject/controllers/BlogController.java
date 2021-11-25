@@ -65,7 +65,8 @@ public class BlogController {
 
     @PostMapping("/blog/{id}/edit")
     public String blogPostUpdate(@PathVariable(value = "id") long id, @RequestParam String title, @RequestParam String anons, @RequestParam String full_text, Model model) {
-        Post post = postRepository.findById(id).orElseThrow();
+        Post post = postRepository.findById(id).orElseThrow(() -> new RuntimeException());
+
         post.setTitle(title);
         post.setAnons(anons);
         post.setFull_text(full_text);
@@ -75,7 +76,7 @@ public class BlogController {
 
     @PostMapping("/blog/{id}/remove")
     public String blogPostDelete(@PathVariable(value = "id") long id, Model model) {
-        Post post = postRepository.findById(id).orElseThrow();
+        Post post = postRepository.findById(id).orElseThrow(() -> new RuntimeException());
         postRepository.delete(post);
         return "redirect:/blog";
     }

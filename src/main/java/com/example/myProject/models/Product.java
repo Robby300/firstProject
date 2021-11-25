@@ -12,7 +12,6 @@ public class Product  {
     private Long id;
 
     private String logo;
-
     private double price;
     private String name;
     private String description;
